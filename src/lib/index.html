@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.css" rel="stylesheet">
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script src="../../dist/ry-vue-toast-demo.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button type="button" class="btn btn-primary" @click="showToast1">click1</button>
+        <button type="button" class="btn btn-primary" @click="showToast2">click2</button>
+        <button type="button" class="btn btn-primary" @click="showToast3">click3</button>
+        <button type="button" class="btn btn-primary" @click="showToast3">click4</button>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            methods: {
+                showToast1() {
+                    this.$toast.show('hello1~')
+                },
+                showToast2() {
+                    this.$toast.show('hello2~', {
+                        duration:10000
+                    })
+                },
+                showToast3() {
+                    this.$toast.show('hello3~', {
+                        duration:5000
+                    }, function() {
+                        alert('我是toast3的回调~')
+                    })
+                },
+                showToast3() {
+                    this.$toast.show('hello4~', function() {
+                        alert('我是toast4的回调~')
+                    })
+                },
+            }
+        })
+    </script>
+</body>
+</html>
